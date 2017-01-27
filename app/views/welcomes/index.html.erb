@@ -1,0 +1,13 @@
+<h1>Hello World!</h1>
+
+
+<script type="text/javascript">
+//request with URL,data,success callback
+$.post("http://railsapifeed.herokuapp.com/users",
+	{name:"ravi", email: "ravi@email.com", password: "password", password_confirmation: "password"},
+	function(data, textStatus, jqXHR)
+	{
+		console.log(data);
+	}
+);
+</script>
