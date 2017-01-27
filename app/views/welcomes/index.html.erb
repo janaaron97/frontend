@@ -1,13 +1,21 @@
-<h1>Hello World!</h1>
-
+<p id = "text"></p>
 
 <script type="text/javascript">
-//request with URL,data,success callback
-$.post("http://railsapiback.herokuapp.com/users",
-	{name:"ravi", email: "ravi@email.com", password: "password", password_confirmation: "password"},
-	function(data, textStatus, jqXHR)
-	{
-		console.log(data);
-	}
-);
+$.ajax({
+    url: "http://railsapiback.herokuapp.com/authenticate",
+    type: 'POST',
+    dataType: 'json',
+    contentType: 'application/json',
+    processData: false,
+    data: '{"email":"isthisworking@isthisworking.com","password":"isthisworking"}',
+    success: function (data) {
+      result = JSON.stringify(data);
+      console.log(result);
+      document.getElementById('text').innerHTML = result;
+    },
+    error: function(){
+      alert("Cannot get data");
+    }
+});
+
 </script>
